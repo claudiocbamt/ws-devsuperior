@@ -1,14 +1,24 @@
 package com.devsuperior.dscatalog.entities;
 
 import java.io.Serializable;
+import java.lang.annotation.Native;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+@Entity
+@Table (name= "tb_category")
 public class category implements Serializable {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	@javax.persistence.Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long  Id;
+	
 	private String Name;
 	public category() {
 		
