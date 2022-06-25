@@ -1,42 +1,36 @@
-package com.devsuperior.dscatalog.entities;
-
+package com.devsuperior.dscatalog.dto;
+import com.devsuperior.dscatalog.entities.category;
 import java.io.Serializable;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
-@Entity
-@Table (name= "tb_category")
-public class category implements Serializable {
+public class CategoryDTO implements Serializable {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@javax.persistence.Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private Long  Id;
 	
+    private Long  Id;	
 	private String Name;
-	public category() {
+	
+	
+	public CategoryDTO(){
 		
 	}
-	public category(Long id, String name) {
+	
+	public CategoryDTO(Long id, String name) {
 		super();
 		Id = id;
 		Name = name;
+	}
+	
+	public CategoryDTO(category entidade) {
 		
+		this.Id = entidade.getId();
+		this.Name = entidade.getName();
 	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((Id == null) ? 0 : Id.hashCode());
-		result = prime * result + ((Name == null) ? 0 : Name.hashCode());
-		return result;
-	}
+
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -45,7 +39,7 @@ public class category implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		category other = (category) obj;
+		CategoryDTO other = (CategoryDTO) obj;
 		if (Id == null) {
 			if (other.Id != null)
 				return false;
@@ -58,20 +52,21 @@ public class category implements Serializable {
 			return false;
 		return true;
 	}
+
 	public Long getId() {
 		return Id;
 	}
+
 	public void setId(Long id) {
 		Id = id;
 	}
+
 	public String getName() {
 		return Name;
 	}
+
 	public void setName(String name) {
 		Name = name;
 	}
-	
-	
-	
 
 }
