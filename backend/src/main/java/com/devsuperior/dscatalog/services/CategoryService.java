@@ -63,6 +63,13 @@ public class CategoryService {
 		// TODO Auto-generated method stub
 		return new CategoryDTO(entidade);
 	}
+	@Transactional
+	public CategoryDTO Atualizar(Long id, CategoryDTO dto) {
+		category entidade = repository.getById(id);
+		entidade.setName(dto.getName());
+		entidade = repository.save(entidade);
+		return new CategoryDTO(entidade);
+	}
 		
 
 }
