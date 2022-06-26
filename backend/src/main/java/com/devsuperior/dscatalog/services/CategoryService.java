@@ -2,6 +2,7 @@ package com.devsuperior.dscatalog.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devsuperior.dscatalog.dto.CategoryDTO;
 import com.devsuperior.dscatalog.entities.category;
 import com.devsuperior.dscatalog.repositoryes.CategoryRepository;
+import com.devsuperior.dscatalog.services.exceptions.EntityNotFoundException;
 
 
 @Service
@@ -42,5 +44,25 @@ public class CategoryService {
 		return listaDTO;
 	}
 	
+	@Transactional(readOnly= true) //não trava o banco de dados (loking)
+	
+	 public CategoryDTO BuscarPorId(long Id){
+			
+			Optional <category> obj = repository.findById(Id);
+			
+			//category entity = obj.get();
+			category entity = obj.orElseThrow(() -> new EntityNotFoundException("Entity not Foun"));
+			return new CategoryDTO(entity);
+		}
+	@Transactional
+	public CategoryDTO Inserir(CategoryDTO dto) {
+		
+		category entidade = new category();
+		entidade.setName(dto.getName());
+		 entidade = repository.save(entidade);
+		// TODO Auto-generated method stub
+		return new CategoryDTO(entidade);
+	}
+		
 
 }
