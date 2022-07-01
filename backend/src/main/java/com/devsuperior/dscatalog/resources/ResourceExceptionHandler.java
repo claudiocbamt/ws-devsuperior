@@ -10,19 +10,32 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.devsuperior.dscatalog.resources.exceptions.StandardError;
-import com.devsuperior.dscatalog.services.exceptions.EntityNotFoundException;
+import com.devsuperior.dscatalog.services.exceptions.DataBaseException;
+import com.devsuperior.dscatalog.services.exceptions.ResourceNotFoundException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {
-	@ExceptionHandler(EntityNotFoundException.class)
-	public ResponseEntity<StandardError> entityNotFound (EntityNotFoundException e, HttpServletRequest request){
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public ResponseEntity<StandardError> entityNotFound (ResourceNotFoundException e, HttpServletRequest request){
 		StandardError error = new StandardError();
 		error.setTimestamp(Instant.now());
 		error.setStatus(HttpStatus.NOT_FOUND.value());
-		error.setError("Resource Not Found");
+		error.setError("Recurso não encontrado");
 		error.setMessage(e.getMessage());
 		error.setPath(request.getRequestURI());
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
 	}
+	
+	
+		@ExceptionHandler(DataBaseException.class)
+		public ResponseEntity<StandardError> entityNotFound (DataBaseException e, HttpServletRequest request){
+			StandardError error = new StandardError();
+			error.setTimestamp(Instant.now());
+			error.setStatus(HttpStatus.BAD_REQUEST.value());
+			error.setError("Ocorreu uma Excessão na Base de dados");
+			error.setMessage(e.getMessage());
+			error.setPath(request.getRequestURI());
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+		}
 
 }
