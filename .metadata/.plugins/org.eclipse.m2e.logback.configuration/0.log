@@ -330,3 +330,10 @@
 2022-09-07 20:25:57,826 [Worker-60: Launching dscatalog - DscatalogApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2022-09-07 20:25:57,826 [Worker-60: Launching dscatalog - DscatalogApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2022-09-07 20:25:57,826 [Worker-60: Launching dscatalog - DscatalogApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\projeto\ws-devsuperior\backend\src\test\resources
+2022-09-07 21:24:02,569 [Worker-60: Launching dscatalog - DscatalogApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-07 21:24:02,570 [Worker-60: Launching dscatalog - DscatalogApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-07 21:24:02,570 [Worker-60: Launching dscatalog - DscatalogApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2022-09-07 21:24:02,592 [Worker-60: Launching dscatalog - DscatalogApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-09-07 21:24:02,594 [Worker-60: Launching dscatalog - DscatalogApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-07 21:24:02,594 [Worker-60: Launching dscatalog - DscatalogApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-07 21:24:02,594 [Worker-60: Launching dscatalog - DscatalogApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\projeto\ws-devsuperior\backend\src\test\resources
